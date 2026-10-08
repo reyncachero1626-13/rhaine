@@ -1,0 +1,87 @@
+/* ===== DESIGN TOKENS: change colors here and the whole site updates ===== */
+:root{
+  --bg:#05070A; --panel:#0B1118; --blue:#007BFF; --bright:#00A8FF;
+  --white:#fff; --muted:#AAB7C4; --line:#14304d;
+  --head:'Orbitron',system-ui,sans-serif; --body:'Rajdhani',system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+body{background:var(--bg);color:var(--white);font:500 1.1rem/1.6 var(--body);overflow-x:hidden;
+  /* subtle HUD grid */
+  background-image:linear-gradient(rgba(0,123,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(0,123,255,.05) 1px,transparent 1px);
+  background-size:48px 48px}
+.blue{color:var(--bright)}
+
+/* ===== INTRO ===== */
+#intro{position:fixed;inset:0;z-index:100;background:#000;display:grid;place-items:center;transition:transform .6s cubic-bezier(.8,0,.2,1)}
+#intro.done{transform:translateX(100%)} /* fast horizontal wipe */
+#particles{position:absolute;inset:0;width:100%;height:100%}
+.intro-center{position:relative;text-align:center}
+#logo{fill:none;stroke:var(--bright);stroke-width:5;stroke-linecap:round;filter:drop-shadow(0 0 8px var(--blue))}
+#logo .draw{stroke-dasharray:100;stroke-dashoffset:100;animation:draw 1s .3s forwards}
+#logo.glitch{animation:glitch .35s steps(2) 2}
+@keyframes draw{to{stroke-dashoffset:0}}
+@keyframes glitch{0%{transform:translate(0)}25%{transform:translate(-4px,2px);opacity:.5}50%{transform:translate(4px,-2px)}75%{transform:translate(-2px,0);opacity:.7}100%{transform:none}}
+.boot{font-family:var(--head);letter-spacing:.2em;font-size:.9rem;margin-top:1.2rem;color:var(--white)}
+.bar{width:220px;max-width:70vw;height:3px;background:var(--line);margin:1rem auto 0}
+#bar-fill{display:block;height:100%;width:0;background:var(--bright);box-shadow:0 0 10px var(--bright);transition:width 2.4s linear}
+
+/* ===== NAV ===== */
+.nav{position:sticky;top:0;z-index:50;display:flex;justify-content:space-between;align-items:center;padding:.8rem 5vw;background:rgba(5,7,10,.92);border-bottom:1px solid var(--line);backdrop-filter:blur(6px)}
+.brand{font-family:var(--head);color:var(--white);text-decoration:none;font-weight:700;font-size:.95rem}
+#menu a{color:var(--muted);text-decoration:none;margin-left:1.4rem;padding:.2rem 0;border-bottom:2px solid transparent;transition:.25s}
+#menu a:hover,#menu a:focus-visible{color:var(--white);border-color:var(--bright);text-shadow:0 0 8px var(--blue)}
+#burger{display:none;background:none;border:1px solid var(--line);color:var(--white);font-size:1.4rem;padding:.1rem .6rem;cursor:pointer}
+
+/* ===== LAYOUT ===== */
+section{padding:4.5rem 5vw 1rem;max-width:1100px;margin:auto}
+h2{font-family:var(--head);font-size:1.2rem;color:var(--bright);margin-bottom:1.4rem;letter-spacing:.1em}
+h3{font-family:var(--head);font-size:1rem;margin-bottom:.5rem}
+h4{color:var(--bright);font-size:.95rem;margin:.8rem 0 .3rem}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem}
+.hero{padding-top:5rem}
+.hero h1{font-family:var(--head);font-weight:900;font-size:clamp(2rem,7vw,4.2rem);line-height:1.1;margin:.4rem 0}
+.tag{color:var(--muted);font-size:.9rem;letter-spacing:.15em}
+.subtitle{color:var(--bright);letter-spacing:.12em;margin-bottom:2rem;font-size:1.1rem}
+.info{margin-top:1rem}
+
+/* ===== CARDS + HOVER ===== */
+.card{background:var(--panel);border:1px solid var(--line);padding:1.2rem;position:relative;overflow:hidden;
+  clip-path:polygon(0 0,calc(100% - 16px) 0,100% 16px,100% 100%,0 100%); /* angled "racing" corner */
+  transition:transform .25s,border-color .25s,box-shadow .25s}
+.card::after{content:"";position:absolute;top:0;left:-60%;width:40%;height:2px;background:var(--bright);opacity:0;transition:.5s} /* scan line */
+.card:hover{transform:translateY(-4px);border-color:var(--bright);box-shadow:0 0 18px rgba(0,168,255,.3)}
+.card:hover::after{left:120%;opacity:1}
+.card p{color:var(--muted)}
+.card.wide{max-width:800px}
+.label{display:block;font-size:.8rem;color:var(--bright);letter-spacing:.2em}
+.card strong{font-size:1.15rem}
+.meta{font-size:.9rem;margin-top:.6rem}
+.hint{font-size:.9rem;margin-top:.8rem;opacity:.6}
+.btn{display:inline-block;margin-top:.8rem;padding:.3rem .9rem;border:1px solid var(--blue);color:var(--white);text-decoration:none;transition:.25s}
+.btn:hover{background:var(--blue);box-shadow:0 0 12px var(--blue)}
+.tags{display:flex;flex-wrap:wrap;gap:.7rem}
+.tag-chip{padding:.35rem 1rem;border:1px solid var(--line);background:var(--panel);transition:.25s}
+.tag-chip:hover{border-color:var(--bright);color:var(--bright);transform:translateY(-2px);box-shadow:0 0 12px rgba(0,168,255,.3)}
+
+/* ===== EDUCATION TIMELINE (track line down the left) ===== */
+.track{list-style:none;position:relative;padding-left:2.2rem;display:grid;gap:1.4rem}
+.track::before{content:"";position:absolute;left:8px;top:0;bottom:0;width:3px;background:repeating-linear-gradient(var(--blue) 0 14px,transparent 14px 22px)}
+.track li::before{content:"";position:absolute;left:-2.2rem;top:1.4rem;width:14px;height:14px;background:var(--bg);border:2px solid var(--bright);border-radius:50%;box-shadow:0 0 8px var(--blue)}
+.track li{overflow:visible;clip-path:none}
+.lap{font-size:.8rem;letter-spacing:.2em;color:var(--bright)}
+.area{min-height:90px;border:1px dashed var(--line);padding:.7rem;margin-top:.3rem}
+.current{border-color:var(--blue)}
+
+/* ===== FOOTER ===== */
+footer{display:flex;justify-content:space-between;flex-wrap:wrap;gap:.5rem;margin-top:4rem;padding:1.5rem 5vw;border-top:1px solid var(--line);color:var(--muted);font-size:.9rem}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:760px){
+  #burger{display:block}
+  #menu{display:none;position:absolute;top:100%;left:0;right:0;background:var(--bg);flex-direction:column;border-bottom:1px solid var(--line);padding:.5rem 5vw}
+  #menu.open{display:flex}
+  #menu a{margin:0;padding:.7rem 0}
+}
+@media(hover:none){.card:hover{transform:none}} /* no sticky hover lift on touch screens */
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>[YOUR NAME] // Programmer Profile</title>
+<!-- Fonts: Orbitron (headings) + Rajdhani (body) from Google Fonts. Falls back to system fonts if offline. -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Rajdhani:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ============ 1. INTRO / BOOT SCREEN (hidden by script.js after ~3s) ============ -->
+<div id="intro" aria-hidden="true">
+  <canvas id="particles"></canvas>
+  <div class="intro-center">
+    <!-- Logo: racing chevrons + code brackets, drawn as SVG so it's easy to edit -->
+    <svg id="logo" viewBox="0 0 120 120" width="140" height="140">
+      <path class="draw" d="M20 60 L45 35 M20 60 L45 85" />
+      <path class="draw" d="M100 60 L75 35 M100 60 L75 85" />
+      <path class="draw" d="M50 90 L70 30 M62 90 L82 30" />
+    </svg>
+    <p id="boot-text" class="boot">SYSTEM INITIALIZING...</p>
+    <div class="bar"><span id="bar-fill"></span></div>
+  </div>
+</div>
+
+<!-- ============ 9. NAVIGATION ============ -->
+<header class="nav">
+  <a href="#home" class="brand">&lt;/&gt; [YOUR NAME]</a>
+  <button id="burger" aria-label="Toggle menu" aria-expanded="false">☰</button>
+  <nav id="menu">
+    <a href="#home">Home</a><a href="#about">About</a><a href="#achievements">Achievements</a>
+    <a href="#platforms">Platforms</a><a href="#skills">Skills</a><a href="#education">Education</a><a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<main>
+<!-- ============ 2. HOME / DASHBOARD ============ -->
+<section id="home" class="hero">
+  <p class="tag">DRIVER ID: <span class="blue">001</span> &nbsp; STATUS: <span class="blue">ONLINE</span></p>
+  <h1>[YOUR NAME]</h1>
+  <!-- Edit this subtitle freely -->
+  <p class="subtitle">PROGRAMMER // STUDENT // CYBERSECURITY ENTHUSIAST</p>
+  <div class="grid info">
+    <div class="card"><span class="label">NAME</span><strong>[YOUR NAME]</strong></div>
+    <div class="card"><span class="label">AGE</span><strong>[YOUR AGE]</strong></div>
+    <div class="card"><span class="label">SCHOOL</span><strong>[CURRENT SCHOOL / UNIVERSITY]</strong></div>
+    <div class="card"><span class="label">COURSE</span><strong>[YOUR COURSE]</strong></div>
+  </div>
+</section>
+
+<!-- ============ 3. ABOUT ============ -->
+<section id="about">
+  <h2>// DRIVER PROFILE</h2>
+  <div class="card wide">
+    <p>[WRITE A SHORT DESCRIPTION ABOUT YOURSELF HERE]</p>
+    <p class="hint">Ideas: interest in programming and cybersecurity, why you chose your course, hobbies, goals, technologies you are learning.</p>
+  </div>
+</section>
+
+<!-- ============ 4. ACHIEVEMENTS (copy a card to add more) ============ -->
+<section id="achievements">
+  <h2>// COLLEGE ACHIEVEMENTS</h2>
+  <div class="grid">
+    <article class="card">
+      <h3>[YOUR ACHIEVEMENT]</h3>
+      <p>[DESCRIPTION]</p>
+      <p class="meta">[DATE / YEAR] &nbsp;|&nbsp; [ORGANIZATION / EVENT]</p>
+    </article>
+    <article class="card">
+      <h3>[YOUR ACHIEVEMENT]</h3>
+      <p>[DESCRIPTION]</p>
+      <p class="meta">[DATE / YEAR] &nbsp;|&nbsp; [ORGANIZATION / EVENT]</p>
+    </article>
+    <article class="card">
+      <h3>[YOUR ACHIEVEMENT]</h3>
+      <p>[DESCRIPTION]</p>
+      <p class="meta">[DATE / YEAR] &nbsp;|&nbsp; [ORGANIZATION / EVENT]</p>
+    </article>
+  </div>
+</section>
+
+<!-- ============ 5. PLATFORMS (only keep the ones you really use) ============ -->
+<section id="platforms">
+  <h2>// CYBERSECURITY &amp; PLATFORMS</h2>
+  <div class="grid">
+    <article class="card">
+      <h3>TryHackMe</h3>
+      <p>[DESCRIBE YOUR EXPERIENCE WITH TRYHACKME HERE]</p>
+      <p class="meta">LEVEL: [YOUR LEVEL]</p>
+      <a class="btn" href="#platforms">[YOUR LINK]</a>
+    </article>
+    <article class="card">
+      <h3>[PLATFORM NAME]</h3>
+      <p>[DESCRIPTION]</p>
+      <p class="meta">LEVEL: [YOUR LEVEL]</p>
+      <a class="btn" href="#platforms">[YOUR LINK]</a>
+    </article>
+  </div>
+</section>
+
+<!-- ============ 10. SKILLS (replace with your own) ============ -->
+<section id="skills">
+  <h2>// TECHNICAL SKILLS</h2>
+  <div class="tags">
+    <span class="tag-chip">[YOUR SKILL]</span><span class="tag-chip">[YOUR SKILL]</span>
+    <span class="tag-chip">[YOUR SKILL]</span><span class="tag-chip">[YOUR SKILL]</span>
+    <span class="tag-chip">[YOUR SKILL]</span><span class="tag-chip">[YOUR SKILL]</span>
+  </div>
+</section>
+
+<!-- ============ 6. EDUCATION: racing-track timeline ============ -->
+<section id="education">
+  <h2>// EDUCATION HISTORY</h2>
+  <ol class="track">
+    <li class="card">
+      <span class="lap">LAP 1 // ELEMENTARY</span>
+      <h3>Bone South Elementary School</h3>
+      <h4>Academic Achievements</h4>
+      <p class="area">[ADD ELEMENTARY ACADEMIC ACHIEVEMENTS HERE]</p>
+    </li>
+    <li class="card">
+      <span class="lap">LAP 2 // JUNIOR HIGH</span>
+      <h3>Aritao National High School</h3>
+      <h4>Academic Achievements</h4>
+      <p class="area">[ADD JUNIOR HIGH SCHOOL ACADEMIC ACHIEVEMENTS HERE]</p>
+    </li>
+    <li class="card">
+      <span class="lap">LAP 3 // SENIOR HIGH</span>
+      <h3>Aritao National High School</h3>
+      <h4>Academic Achievements</h4>
+      <p class="area">[ADD SENIOR HIGH SCHOOL ACADEMIC ACHIEVEMENTS HERE]</p>
+    </li>
+    <li class="card current">
+      <span class="lap">LAP 4 // COLLEGE (CURRENT)</span>
+      <h3>[CURRENT SCHOOL / UNIVERSITY]</h3>
+      <p class="area">[YOUR COURSE]</p>
+    </li>
+  </ol>
+</section>
+
+<!-- ============ 11. CONTACT ============ -->
+<section id="contact">
+  <h2>// CONTACT</h2>
+  <div class="grid">
+    <div class="card"><span class="label">EMAIL</span><strong>[YOUR EMAIL]</strong></div>
+    <div class="card"><span class="label">GITHUB</span><strong>[YOUR GITHUB]</strong></div>
+    <div class="card"><span class="label">LINKEDIN</span><strong>[YOUR LINKEDIN]</strong></div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <span class="blue">● SYSTEM STATUS: ONLINE</span>
+  <span>© <span id="year">[YEAR]</span> [YOUR NAME] // PROGRAMMER PROFILE</span>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
